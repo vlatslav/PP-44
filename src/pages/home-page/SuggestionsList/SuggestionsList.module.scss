@@ -1,74 +1,64 @@
-// Reuse variables for consistency with HomePage and Recommendations
-$primary-color: #1a73e8; // Blue for accents
-$card-bg: #ffffff; // White background for the list
-$text-color: #333; // Dark text for readability
-$secondary-text: #666; // Lighter text for secondary info
-$shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Subtle shadow
-$border-radius: 8px; // Rounded corners
-$transition: all 0.3s ease; // Smooth transitions
+@import "@/styles/main.scss";
+
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 .list {
   max-height: 400px;
-  overflow-y: auto; // Scrollbar when needed
+  overflow-y: auto;
   list-style: none;
   padding: 0;
-  margin: 0;
-  background-color: $card-bg;
-  border-radius: $border-radius;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 1rem auto;
+  background: $bg-glass;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  border: 1px solid $border-color;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeInDown 0.3s ease-out;
 
-  // Ensure content doesn’t collapse
   display: block;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 
-  // Force scrollbar visibility for testing (optional)
-  -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
-
-  // Custom scrollbar (WebKit)
   &::-webkit-scrollbar {
-    width: 8px;
-    background-color: transparent;
+    width: 6px;
   }
-
   &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: $border-radius;
-    margin: 4px 0; // Prevent scrollbar from touching edges
+    background: transparent;
   }
-
   &::-webkit-scrollbar-thumb {
-    background: $secondary-text;
-    border-radius: $border-radius;
-    border: 1px solid #f1f1f1;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
   }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: darken($secondary-text, 10%);
-  }
-
-  // Firefox scrollbar (optional)
-  scrollbar-width: thin;
-  scrollbar-color: $secondary-text #f1f1f1;
 
   li {
-    padding: 1rem;
+    padding: 16px 24px;
     cursor: pointer;
-    font-size: 1rem;
-    color: $text-color;
-    border-bottom: 1px solid #e5e7eb;
+    font-size: 1.1rem;
+    color: $light-primary;
+    border-bottom: 1px solid $border-color;
     transition: $transition;
-
-    &:hover {
-      background-color: #f0f0f0;
-    }
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(5px);
+    }
+
     span {
-      color: $secondary-text;
-      font-size: 0.9rem;
+      color: $text-secondary;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
   }
 }
@@ -83,8 +73,8 @@ $transition: all 0.3s ease; // Smooth transitions
   .list {
     max-height: 250px;
     li {
-      padding: 0.75rem;
-      font-size: 0.95rem;
+      padding: 12px 16px;
+      font-size: 1rem;
     }
   }
 }

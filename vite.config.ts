@@ -9,11 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), basicSsl({
-    name: 'test',
-    domains: ['*.custom.com'],
-    certDir: '/Users/.../.devServer/cert'
-  })],
+  plugins: [react()],
   server: {
     proxy: {
       "/api": {

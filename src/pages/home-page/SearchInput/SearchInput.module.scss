@@ -1,77 +1,108 @@
-.form {
-  display:  flex;
-  width: 800px;
+@import "@/styles/main.scss";
 
-  input {
-    height: 40px;
-    width: 100%;
-  }
-}
-
-.img {
-  height: 24px;
-  width: 24px;
-}
-
-.watchedButton {
-  background-color: white !important;
-  color: white;
-  border: none;
-  padding: 8px 20px !important;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 0 !important;
-}
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 .form {
   display: flex;
-  width: 800px;
+  width: 100%;
   position: relative;
   align-items: center;
   margin: 0 auto;
+  gap: 12px;
 
   input {
-    height: 40px;
+    height: 60px;
     width: 100%;
-    padding: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-    font-size: 1rem;
+    padding: 0 24px;
+    background: $bg-surface;
+    border: 1px solid $border-color;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    color: $light-primary;
     outline: none;
+    transition: $transition;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+    &::placeholder {
+      color: $text-secondary;
+    }
 
     &:focus {
-      border-color: #007bff;
+      border-color: rgba(139, 92, 246, 0.5);
+      background: rgba(30, 41, 59, 0.5);
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15), 0 4px 20px rgba(0, 0, 0, 0.2);
     }
   }
 }
 
+.watchedButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  background: $bg-surface !important;
+  border: 1px solid $border-color !important;
+  cursor: pointer;
+  transition: $transition;
+  backdrop-filter: blur(12px);
+  padding: 0 !important;
+  margin: 0 !important;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  }
+}
+
 .img {
-  height: 24px;
-  width: 24px;
+  height: 28px;
+  width: 28px;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
 }
 
 .dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 15px);
   left: 0;
   width: 100%;
-  max-height: 300px;
+  max-height: 350px;
   overflow-y: auto;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  margin-top: 5px;
+  background: $bg-glass;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  z-index: 20;
+  animation: fadeInDown 0.3s ease-out;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
 }
 
 .movieItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  border-bottom: 1px solid #eee;
+  padding: 16px 20px;
+  border-bottom: 1px solid $border-color;
+  transition: $transition;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
 
   &:last-child {
     border-bottom: none;
@@ -81,45 +112,58 @@
 .movieInfo {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .movieTitle {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $light-primary;
   margin: 0;
-  color: #333;
 }
 
 .movieDetail {
   font-size: 0.9rem;
-  color: #555;
+  color: $text-secondary;
   margin: 0;
 
   strong {
-    color: #333;
+    color: lighten($text-secondary, 15%);
   }
 }
 
 .noMovies {
   font-size: 1rem;
-  color: #555;
+  color: $text-secondary;
   text-align: center;
-  padding: 15px;
+  padding: 24px;
   margin: 0;
 }
 
 .closeButton {
-  margin: 0 !important;
-  background: none !important;
+  background: transparent !important;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition;
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.15) !important;
+    .closeImg {
+      filter: invert(40%) sepia(85%) saturate(1209%) hue-rotate(338deg) brightness(101%) contrast(98%);
+    }
+  }
 }
 
 .closeImg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  transition: $transition;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
 }
 
 @media (max-width: 850px) {
