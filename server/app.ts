@@ -76,11 +76,11 @@ const TMDB_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZTNiOGU1ZTE2MTg4YjFkNjJiM2N
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-mongoose.connect(MONGO_URI, {dbName: DATABASE_NAME}).then(() => {
-  console.log("Connected to MongoDB");
-}).catch((err) => {
-  console.error("MongoDB connection error:", err);
-});
+// mongoose.connect(MONGO_URI, {dbName: DATABASE_NAME}).then(() => {
+//   console.log("Connected to MongoDB");
+// }).catch((err) => {
+//   console.error("MongoDB connection error:", err);
+// });
 
 const movieCollection = mongoose.connection.collection(COLLECTION_NAME);
 
