@@ -1,0 +1,14 @@
+.page-background {
+  margin: 0;
+  height: calc(100vh - 84px);
+  width: 100%;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

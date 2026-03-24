@@ -1,0 +1,96 @@
+@import "@/styles/main.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #163249;
+  padding-bottom: 30px;
+  width: 600px;
+  border-radius: 24px;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.text {
+  color: $secondary-color;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.underline{
+  margin-top: 5px;
+  width: 61px;
+  height: 6px;
+  background: $secondary-color;
+  border-radius: 9px;
+}
+
+.inputs{
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 60px;
+  background: #FFFFFF;
+  border-radius: 6px;
+
+  img{
+    margin: 0 30px;
+  }
+
+  input{
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $primary-color;
+    font-size: 19px;
+  }
+}
+
+.submit-container {
+  display: flex;
+  gap: 30px;
+  margin: 20px auto;
+}
+
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height:60px;
+  color: $primary-color;
+  background: $secondary-color;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.change-method{
+  text-align: center;
+  color: $secondary-color;
+  font-size: 18px;
+
+  span {
+    color: $secondary-color;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

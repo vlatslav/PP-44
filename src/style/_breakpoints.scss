@@ -1,0 +1,49 @@
+// breakpoint functions is used for different screen sizes
+
+@mixin breakpoint($point) {
+  @if $point == mobile {
+    @content;
+  } @else if $point == mobile_landscape {
+    @media screen and (min-width: 667px), screen and (min-aspect-ratio: 13/9) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media screen and (min-width: 769px) {
+      @content;
+    }
+  } @else if $point == tablet_landscape {
+    @media screen and (min-width: 960px), screen and (min-aspect-ratio: 13/9) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media screen and (min-width: 1025px) {
+      @content;
+    }
+  }
+}
+
+html {
+  font-size: calc(16 * 100vw / 375);
+  width: calc(0vw + 100%);
+
+  @include breakpoint(mobile_landscape) {
+    font-size: calc(16 * 100vw / 667);  // also try 10
+  }
+
+  @include breakpoint(tablet) {
+    font-size: calc(16 * 100vw / 768); // also try 12
+  }
+
+  @include breakpoint(tablet_landscape) {
+    font-size: calc(16 * 100vw / 960); // also try 14
+  }
+
+  @include breakpoint(desktop) {
+    font-size: calc(16 * 100vw / 1440);
+  }
+
+  & body {
+    margin: 0;
+  }
+}
+

@@ -1,0 +1,113 @@
+.container {
+  position: relative;
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Andika", sans-serif;
+}
+
+.poster {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 30px;
+  object-fit: cover;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+
+
+  p {
+    font-size: 18px;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.info {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.info strong {
+  color: #333;
+}
+
+.overview {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.loading,
+.error,
+.noMovie {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poster {
+    width: 200px;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .details {
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .info,
+  .overview {
+    font-size: 0.9rem;
+  }
+}
+
+.watchedButton {
+  position: absolute;
+  right: 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px 20px 10px 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  img {
+    height: 24px;
+    width: 24px;
+  }
+}

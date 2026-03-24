@@ -1,0 +1,123 @@
+@import "@/styles/main.scss";
+
+$background-color: $light-primary;
+$text-color: $dark-primary;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+$transition: all 0.3s ease;
+
+.recommendationsContainer {
+  padding: 2rem;
+  background-color: $background-color;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  & > div {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: $text-color;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: $text-color;
+    margin: 1rem 0;
+    font-weight: 500;
+  }
+
+  // Movie list
+  ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  li {
+    background-color: $light-primary;
+    border-radius: $border-radius;
+    padding: 1rem;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    a {
+      text-decoration: none;
+      color: $primary-color;
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: block;
+      transition: $transition;
+
+      &:hover {
+        color: darken($primary-color, 10%);
+      }
+
+      &::after {
+        content: attr(data-year);
+        color: $secondary-color;
+        font-size: 0.9rem;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .recommendationsContainer {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    ul {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .recommendationsContainer {
+    padding: 0.5rem;
+
+    ul {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.movieWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.img {
+  height: 24px;
+  width: 24px;
+}
+
+.watchedButton {
+  display:  flex !important;
+  align-items: center !important;
+    justify-content: center !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 10px !important;
+}

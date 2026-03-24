@@ -1,0 +1,18 @@
+@import "@/styles/main";
+
+.info-alert-message {
+  background-color: white !important;
+  color: #000000 !important;
+  box-shadow: getRem(0) getRem(0) getRem(10) rgba(30, 30, 30, 0.1);
+}
+
+.custom-alert-message {
+    margin: getRem(10) getRem(14) !important;
+    border-radius: getRem(8) !important;
+
+    .MuiAlert-icon {
+      width: getRem(24) !important;
+      height: getRem(24) !important;
+
+    }
+}
